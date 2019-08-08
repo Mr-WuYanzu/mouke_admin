@@ -17,8 +17,3 @@ Route::get('/', function () {
 
 
 
-
-Route::get('/index1', function () {
-    return view('welcome');
-});
-
