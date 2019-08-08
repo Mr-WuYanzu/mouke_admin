@@ -16,6 +16,3 @@ Route::get('/', function () {
 });
 
 
-
-
-
