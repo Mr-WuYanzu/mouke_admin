@@ -20,4 +20,7 @@ Route::get('/index', function () {
     return view('welcome');
 });
 
+Route::get('/index1', function () {
+    return view('welcome');
+});
 
