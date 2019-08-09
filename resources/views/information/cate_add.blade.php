@@ -7,7 +7,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">资讯分类名</label>
             <div class="layui-input-inline">
-                <input type="text" name="title" required  lay-verify="required" placeholder="请输入名称" autocomplete="on" class="layui-input">
+                <input type="text" name="c_name" required  lay-verify="required" placeholder="请输入名称" autocomplete="on" class="layui-input">
             </div>
         </div>
 
@@ -24,12 +24,6 @@
         //Demo
         layui.use('form', function(){
             var form = layui.form;
-
-            //监听提交
-            form.on('submit(formDemo)', function(data){
-                layer.msg(JSON.stringify(data.field));
-                return false;
-            });
         });
     </script>
 

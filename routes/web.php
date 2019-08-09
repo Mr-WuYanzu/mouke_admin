@@ -20,13 +20,21 @@ Route::get('/mouke_admin',function(){
     return view('admin.index');
 });
 #资讯添加
-Route::get('/formation/add',function(){
-    return view('information.add');
-});
+Route::get('/formation/add','Zi\FormationController@add');
+#资讯添加执行
+Route::post('/formation/add_do','Zi\FormationController@add_do');
 #资讯列表
 Route::get('/formation/list','Zi\FormationController@list');
+#删除
+Route::post('/formation/del','Zi\FormationController@del');
+#修改
+Route::get('/formation/update/{id}','Zi\FormationController@update');
+#修改执行
+Route::post('/formation/edit','Zi\FormationController@edit');
 
 Route::get('/index','Index\IndexController@index');
+
+
 
 #分类资讯添加
 Route::get('/cate_formation/add',function(){
@@ -64,3 +72,7 @@ Route::get('/currchapter/edit','Curr\CurrChapterController@edit');
 Route::post('/currchapter/editHandle','Curr\CurrChapterController@editHandle');
 //删除课程章节
 Route::post('currchapter/del','Curr\CurrChapterController@del');
+
+#分类删除
+Route::get('/cate_del/{id}','Zi\FormationController@cate_del');
+
