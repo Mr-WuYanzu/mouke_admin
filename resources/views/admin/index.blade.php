@@ -8,8 +8,8 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <title>管理员后台</title>
                 <link rel="stylesheet" href="/layui/css/layui.css">
-                <script src="/layui/layui.js"></script>
-                <script src="/js/jquery.js"></script>
+                <script src="{{asset('layui/layui.js')}}"></script>
+                <script src="{{asset('js/jquery.js')}}"></script>
             </head>
             <body class="layui-layout-body">
 
@@ -67,6 +67,22 @@
                     <dl class="layui-nav-child">
                         <dd><a href="/cate_formation/add">资讯分类添加</a></dd>
                         <dd><a href="/cate_formation/list">资讯分类列表</a></dd>
+                    </dl>
+                </li>
+
+                <li class="layui-nav-item">
+                    <a href="javascript:;">课程分类管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/currcate/add">课程分类添加</a></dd>
+                        <dd><a href="/currcate/list">课程分类列表</a></dd>
+                    </dl>
+                </li>
+
+                <li class="layui-nav-item">
+                    <a href="javascript:;">课程管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/currchapter/add">课程章节添加</a></dd>
+                        <dd><a href="/currchapter/list">课程章节列表</a></dd>
                     </dl>
                 </li>
             </ul>
