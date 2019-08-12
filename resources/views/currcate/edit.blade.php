@@ -36,14 +36,19 @@
 			var layer=layui.layer;
 			var form=layui.form;
 
+			//提交表单
 			$('#sub').click(function(){
 				var obj={};
+				//获取分类id
 				obj.curr_cate_id=$('#curr_cate_id').val();
+				//获取分类名称
 				obj.cate_name=$('#cate_name').val();
+				//获取父级分类
 				obj.pid=$('option:checked').val();
 				var reg=/^.{2,}$/;
 				var flag=false;
 
+				//非空、正则、唯一性验证
 				if(obj.cate_name==''){
 					layer.msg('分类名称必填',{icon:5,time:1000});
 					return false;
@@ -72,6 +77,7 @@
 					}
 				}
 
+				//发送请求,提交数据
 				$.post(
 					'editHandle',
 					{data:obj},

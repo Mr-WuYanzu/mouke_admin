@@ -19,16 +19,37 @@ class CommonController extends Controller
     	echo "<script>alert('{$msg}');location.href='{$url}';</script>";
     }
 
+    /**
+     * [成功时的响应信息]
+     * @param  string  $msg  [description]
+     * @param  integer $code [description]
+     * @param  integer $skin [description]
+     * @return [type]        [description]
+     */
     public function json_success($msg='success',$code=1,$skin=6)
     {
     	return $this->_Output($msg,$code,$skin);
     }
 
+    /**
+     * [失败时的响应信息]
+     * @param  string  $msg  [description]
+     * @param  integer $code [description]
+     * @param  integer $skin [description]
+     * @return [type]        [description]
+     */
     public function json_fail($msg='fail',$code=2,$skin=5)
     {
     	return $this->_Output($msg,$code,$skin);
     }
 
+    /**
+     * [返回json格式响应信息]
+     * @param  [type] $msg  [description]
+     * @param  [type] $code [description]
+     * @param  [type] $skin [description]
+     * @return [type]       [description]
+     */
     public function _Output($msg,$code,$skin)
     {
     	$arr=[

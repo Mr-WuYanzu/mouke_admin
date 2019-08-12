@@ -80,6 +80,7 @@ class CurrChapterController extends CommonController
     	$currModel=new CurrModel();
     	//查询章节信息
     	$chapterInfo=$currChapterModel->where('chapter_id',$chapter_id)->first();
+        //判断章节是否存在
     	if(empty($chapterInfo)){
     		$this->abort('章节信息有误,请重试','/currchapter/list');return;
     	}

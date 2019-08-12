@@ -43,13 +43,18 @@
 
 			$('#sub').click(function(){
 				var obj={};
+				//获取章节id
 				obj.chapter_id=$('#chapter_id').val();
+				//获取章节名称
 				obj.chapter_name=$('#chapter_name').val();
+				//获取所属课程
 				obj.curr_id=$('option:selected').val();
+				//获取章节介绍
 				obj.chapter_desc=$('#chapter_desc').val();
 				var reg=/^.{2,}$/;
 				var flag=false;
 
+				//非空、正则、唯一性验证
 				if(obj.chapter_name==''){
 					layer.msg('章节名称必填',{icon:5,time:1000});
 					return false;
@@ -78,6 +83,7 @@
 					}
 				}
 
+				//发送请求,提交数据
 				$.post(
 					'editHandle',
 					{data:obj},

@@ -23,7 +23,7 @@
     <tr chapter_id="{{$v['chapter_id']}}">
       <td>{{$v['chapter_id']}}</td>
       <td>{{$v['chapter_name']}}</td>
-      <td>{{str_replace(mb_substr($v['chapter_desc'],8,-1),'...',$v['chapter_desc'])}}</td>
+      <td>{{str_replace(mb_substr($v['chapter_desc'],8,mb_strlen($v['chapter_desc'])),'...',$v['chapter_desc'])}}</td>
       <td>{{$v['curr']['curr_name']}}</td>
       <td>{{date('Y-m-d H:i:s',$v['create_time'])}}</td>
       <td>
