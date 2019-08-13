@@ -117,6 +117,35 @@ class CurrChapterController extends CommonController
     }
 
     /**
+     * [章节名称即点即改]
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function editChapterName(Request $request)
+    {
+        //接收章节id
+        $chapter_id=$request->post('chapter_id');
+        //接收章节名称
+        $chapter_name=$request->post('chapter_name');
+        //实例化模型类
+        $chapterModel=new CurrChapterModel();
+        //验证章节名称唯一性
+        $count=$chapterModel->where('chapter_name',$chapter_name)->where('chapter_id','!=',$chapter_id)->count();
+        //验证未通过返回提示
+        if($count>0){
+            echo $this->json_fail('章节名称已被占用');return;
+        }
+        //更新数据
+        $res=$chapterModel->where('chapter_id',$chapter_id)->update(['chapter_name'=>$chapter_name]);
+        //检测结果,返回提示
+        if($res){
+            echo $this->json_success('修改成功');
+        }else{
+            echo $this->json_fail('修改失败');
+        }
+    }
+
+    /**
      * [删除课程章节]
      * @param  Request $request [description]
      * @return [type]           [description]

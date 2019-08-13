@@ -25,7 +25,7 @@
       	<span class="cate" style="cursor:pointer;">+</span>
       </td>
       <td>{{$v['curr_cate_id']}}</td>
-      <td>{{$v['cate_name']}}</td>
+      <td class="cate_name_tr">{{$v['cate_name']}}</td>
       <td>{{date('Y-m-d H:i:s',$v['create_time'])}}</td>
       <td>
       	<a class="layui-btn layui-btn-normal edit" href="/currcate/edit?curr_cate_id={{$v['curr_cate_id']}}">修改</a>
@@ -76,6 +76,65 @@
 					_this.html('+');	
 					hideTr(cate_id);		
 				}
+			});
+
+			//分类名称即点即改
+			$('.cate_name_tr').click(function(){
+				var _this=$(this);
+				var cate_name=_this.html();
+				var curr_cate_id=_this.parents('tr').attr('cate_id');
+
+				if(_this.children('input').length>0){
+					return false;
+				}
+
+				var _input="<input class='cate_name' value='"+cate_name+"'>";
+
+				_this.html(_input);
+
+				_this.children('input').focus().select();
+
+				_this.children('input').keyup(function(e){
+
+					var keyCode=e.keyCode;
+
+					if(keyCode==13){
+						var c_name=_this.children('input').val();
+
+						if(c_name==''){
+			              layer.msg('请输入章节名称',{icon:5,time:1000});
+			              _this.empty();
+			              _this.html(cate_name);
+			              return false;
+			            }
+
+						$.post(
+							'editCateName',
+							{curr_cate_id:curr_cate_id,cate_name:c_name},
+							function(res){
+								layer.msg(res.font,{icon:res.skin,time:1000},function(){
+									_this.empty();
+									if(res.code==1){
+										_this.html(c_name);
+									}else{
+										_this.html(cate_name);
+									}
+								});
+							},
+							'json'
+						)
+					}else if(keyCode==27){
+						layer.msg('您取消了修改',{icon:5,time:1000});
+						_this.empty();
+						_this.html(cate_name);
+					}
+				});
+
+				_this.children('input').blur(function(){
+					_this.empty();
+					_this.html(cate_name);
+				});
+
 			});
 
 			//删除分类数据

@@ -56,6 +56,8 @@ Route::get('/currcate/list','Curr\CurrCateController@list');
 Route::get('/currcate/edit','Curr\CurrCateController@edit');
 //修改课程分类处理
 Route::post('/currcate/editHandle','Curr\CurrCateController@editHandle');
+//即点即改分类名称
+Route::post('/currcate/editCateName','Curr\CurrCateController@editCateName');
 //删除课程分类
 Route::post('/currcate/del','Curr\CurrCateController@del');
 //课程章节添加页面
@@ -70,6 +72,8 @@ Route::get('/currchapter/list','Curr\CurrChapterController@list');
 Route::get('/currchapter/edit','Curr\CurrChapterController@edit');
 //课程章节修改处理
 Route::post('/currchapter/editHandle','Curr\CurrChapterController@editHandle');
+//即点即改章节名称
+Route::post('/currchapter/editChapterName','Curr\CurrChapterController@editChapterName');
 //删除课程章节
 Route::post('currchapter/del','Curr\CurrChapterController@del');
 

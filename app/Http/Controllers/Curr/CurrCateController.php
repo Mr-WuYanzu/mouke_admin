@@ -127,6 +127,35 @@ class CurrCateController extends CommonController
     }
 
     /**
+     * [分类名称即点即改]
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function editCateName(Request $request)
+    {
+        //接收分类id
+        $curr_cate_id=$request->post('curr_cate_id');
+        //接收分类名称
+        $cate_name=$request->post('cate_name');
+        //实例化模型类
+        $currCateModel=new CurrCateModel();
+        //验证分类名称唯一性
+        $count=$currCateModel->where('cate_name',$cate_name)->where('curr_cate_id','!=',$curr_cate_id)->count();
+        //如果存在返回提示
+        if($count>0){
+            echo $this->json_fail('分类名称已被占用');return;
+        }
+        //更新数据
+        $res=$currCateModel->where('curr_cate_id',$curr_cate_id)->update(['cate_name'=>$cate_name]);
+        //判断结果,返回提示
+        if($res){
+            echo $this->json_success('修改成功');
+        }else{
+            echo $this->json_fail('修改失败');
+        }
+    }
+
+    /**
      * [删除课程分类]
      * @param  Request $request [description]
      * @return [type]           [description]
