@@ -5,7 +5,13 @@ namespace App\Http\Controllers\Common;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\CurrCateModel;
-
+/**
+ *
+ * class CommonController
+ * @author   <[<email address>]>
+ * @package  App\Http\Controllers\Common
+ * @date 2019-08-10
+ */
 class CommonController extends Controller
 {
 	/**
