@@ -55,6 +55,14 @@
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
 
                 <li class="layui-nav-item">
+                    <a href="javascript:;">讲师管理模块</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/teacherlist">讲师列表审核</a></dd>
+                        <dd><a href="/lock">讲师列表锁定</a></dd>
+                    </dl>
+                </li>
+
+                <li class="layui-nav-item">
                     <a href="javascript:;">资讯管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="/formation/add">资讯添加</a></dd>
