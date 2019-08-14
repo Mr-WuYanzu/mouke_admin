@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
  * 课程模型类
  * class CurrModel
@@ -10,12 +11,11 @@ use Illuminate\Database\Eloquent\Model;
  * @package  App\Model
  * @date 2019-08-09
  */
+
 class CurrModel extends Model
 {
-    //指定表名
-    public $table='curr';
-    //指定主键
-    public $primaryKey='curr_id';
-    //关闭时间戳自动写入
+    //
+    protected $table='curr';
+    protected $primarykey='curr_id';
     public $timestamps=false;
 }

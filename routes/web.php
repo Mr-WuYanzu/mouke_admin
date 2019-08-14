@@ -32,13 +32,16 @@ Route::get('/formation/update/{id}','Zi\FormationController@update');
 #修改执行
 Route::post('/formation/edit','Zi\FormationController@edit');
 
-Route::get('/index','Index\IndexController@index');
+//Route::get('/index','Index\IndexController@index');
 
 
 
 #分类资讯添加
 Route::get('/cate_formation/add',function(){
     return view('information.cate_add');
+});
+Route::get('/index', function () {
+    return view('teacher.index');
 });
 #分类添加执行
 Route::post('/cate_do','Zi\FormationController@cate_do');
@@ -79,4 +82,19 @@ Route::post('currchapter/del','Curr\CurrChapterController@del');
 
 #分类删除
 Route::get('/cate_del/{id}','Zi\FormationController@cate_del');
+Route::get('/teacherlist','teacher\TeacherController@teacherlist');
+
+Route::post('/teacherreview','teacher\TeacherController@teacherreview');
+Route::post('/teacherreview1','teacher\TeacherController@teacherreview1');
+
+Route::post('/teacherlock','teacher\TeacherController@teacherlock');
+Route::post('/teacherlock1','teacher\TeacherController@teacherlock1');
+Route::get('/lock','teacher\TeacherController@lock');
+
+// Route::post('/teacherreview','teacher\TealistController@teacherreview');
+
+
+
+
+
 
