@@ -17,7 +17,23 @@ Route::get('/', function () {
 
 
 Route::get('/index', function () {
-    return view('welcome');
+    return view('teacher.index');
 });
+
+Route::get('/teacherlist','teacher\TeacherController@teacherlist');
+
+Route::post('/teacherreview','teacher\TeacherController@teacherreview');
+Route::post('/teacherreview1','teacher\TeacherController@teacherreview1');
+
+Route::post('/teacherlock','teacher\TeacherController@teacherlock');
+Route::post('/teacherlock1','teacher\TeacherController@teacherlock1');
+Route::get('/lock','teacher\TeacherController@lock');
+
+// Route::post('/teacherreview','teacher\TealistController@teacherreview');
+
+
+
+
+
 
 
