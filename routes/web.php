@@ -93,8 +93,25 @@ Route::get('/lock','teacher\TeacherController@lock');
 
 // Route::post('/teacherreview','teacher\TealistController@teacherreview');
 
-
-
-
-
-
+#课程审核
+    #视图
+    Route::get('/course/audit','course\CourseController@audit');
+    #审核通过
+    Route::post('/audit_pass','course\CourseController@audit_pass');
+    #审核不通过
+    Route::post('/audit_no','course\CourseController@audit_no');
+    #审核未通过列表
+    Route::get('/course/audit/no','course\CourseController@audit_list_no');
+#视频审核
+    #视图
+    Route::get('/video/audit','course\CourseController@video_audit');
+    #点击 课程 展示章节
+    Route::post('/curriculum','course\CourseController@curriculum');
+    #点击 章节 展示课时
+    Route::post('/class_hour','course\CourseController@class_hour');
+    #点击 课时 展示视频
+    Route::post('/getvideo','course\CourseController@getvideo');
+    #点击 审核通过
+    Route::post('/video_pass','course\CourseController@video_pass');
+    #点击 审核不通过
+    Route::post('/video_no','course\CourseController@video_no');

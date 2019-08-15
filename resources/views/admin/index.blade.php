@@ -85,6 +85,23 @@
                         <dd><a href="/currchapter/list">课程章节列表</a></dd>
                     </dl>
                 </li>
+
+                <li class="layui-nav-item">
+                    <a href="javascript:;">课程审核</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/course/audit">课程审核列表</a></dd>
+                        <dd><a href="/course/audit/no">审核未通过列表</a></dd>
+                    </dl>
+                </li>
+
+                <li class="layui-nav-item">
+                    <a href="javascript:;">课程视频审核</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/video/audit">视频审核列表</a></dd>
+                        <dd><a href="">审核未通过列表</a></dd>
+                    </dl>
+                </li>
+
             </ul>
         </div>
     </div>
