@@ -1,5 +1,5 @@
 @extends('admin.index')
-@section('title','讲师展示页面');
+@section('title','讲师展示页面')
 
 
 @section('content')

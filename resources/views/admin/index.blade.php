@@ -89,7 +89,6 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">课程管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/currchapter/add">课程章节添加</a></dd>
                         <dd><a href="/currchapter/list">课程章节列表</a></dd>
                     </dl>
                 </li>

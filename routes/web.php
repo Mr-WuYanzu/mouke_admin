@@ -32,7 +32,7 @@ Route::get('/formation/update/{id}','Zi\FormationController@update');
 #修改执行
 Route::post('/formation/edit','Zi\FormationController@edit');
 
-//Route::get('/index','Index\IndexController@index');
+Route::get('/index','Index\IndexController@index');
 
 
 
@@ -40,9 +40,9 @@ Route::post('/formation/edit','Zi\FormationController@edit');
 Route::get('/cate_formation/add',function(){
     return view('information.cate_add');
 });
-Route::get('/index', function () {
-    return view('teacher.index');
-});
+//Route::get('/index', function () {
+//    return view('teacher.index');
+//});
 #分类添加执行
 Route::post('/cate_do','Zi\FormationController@cate_do');
 #分类资讯列表
