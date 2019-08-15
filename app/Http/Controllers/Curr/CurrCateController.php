@@ -52,6 +52,11 @@ class CurrCateController extends CommonController
     	}
     }
 
+    public function demo()
+    {
+        $this->json_success('添加成功');
+    }
+
     /**
      * [课程分类列表]
      * @param  Request $request [description]

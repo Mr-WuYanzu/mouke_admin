@@ -59,11 +59,11 @@ class CommonController extends Controller
     public function _Output($msg,$code,$skin)
     {
     	$arr=[
-    		'msg'=>$msg,
-    		'code'=>$code,
-    		'skin'=>$skin
-    	];
-    	return json_encode($arr,JSON_UNESCAPED_UNICODE);
+            'font'=>$msg,
+            'code'=>$code,
+            'skin'=>$skin
+        ];
+        echo json_encode($arr,JSON_UNESCAPED_UNICODE);
     }
 
     /**
