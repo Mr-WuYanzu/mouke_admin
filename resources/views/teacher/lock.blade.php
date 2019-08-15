@@ -1,7 +1,5 @@
-@extends('teacher.index')
+@extends('admin.index')
 @section('title','教师锁定页面');
-
-
 
 @section('content')
 

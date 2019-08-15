@@ -1,4 +1,4 @@
-@extends('teacher.index')
+@extends('admin.index')
 @section('title','讲师展示页面');
 
 
