@@ -89,6 +89,7 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">课程管理</a>
                     <dl class="layui-nav-child">
+                        <dd><a href="/curr/judge">课程评判</a></dd>
                         <dd><a href="/currchapter/list">课程章节列表</a></dd>
                     </dl>
                 </li>

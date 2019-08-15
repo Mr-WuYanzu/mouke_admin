@@ -79,6 +79,10 @@ Route::post('/currchapter/editHandle','Curr\CurrChapterController@editHandle');
 Route::post('/currchapter/editChapterName','Curr\CurrChapterController@editChapterName');
 //删除课程章节
 Route::post('currchapter/del','Curr\CurrChapterController@del');
+//课程评判页面
+Route::get('/curr/judge','Curr\CurrController@judge');
+//课程评判处理
+Route::post('/curr/judgeDo','Curr\CurrController@judgeDo');
 
 #分类删除
 Route::get('/cate_del/{id}','Zi\FormationController@cate_del');
