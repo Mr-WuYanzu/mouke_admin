@@ -88,7 +88,7 @@
 					return false;
 				}
 
-				var _input="<input class='cate_name' value='"+cate_name+"'>";
+				var _input=$("<input class='cate_name'>").css({'border-width':0,'background-color':_this.css('background-color')}).val(cate_name);
 
 				_this.html(_input);
 

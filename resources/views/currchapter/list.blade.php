@@ -50,7 +50,7 @@
           return false;
         }
 
-        var input="<input class='chapter_name' value='"+chapter_name+"'>";
+        var input=$("<input class='chapter_name'>").css({'border-width':0,'background-color':_this.css('background-color')}).val(chapter_name);
         _this.html(input);
         _this.children('input').focus().select();
 
