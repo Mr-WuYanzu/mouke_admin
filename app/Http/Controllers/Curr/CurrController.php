@@ -29,6 +29,11 @@ class CurrController extends CommonController
     	return view('curr/judge',compact('currInfo'));
     }
 
+    /**
+     * [课程评判处理]
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
     public function judgeDo(Request $request)
     {
     	//接收评判课程信息
