@@ -106,7 +106,10 @@ Route::get('/lock','teacher\TeacherController@lock');
     Route::post('/audit_no','course\CourseController@audit_no');
     #审核未通过列表
     Route::get('/course/audit/no','course\CourseController@audit_list_no');
+
 #视频审核
+    //审核列表
+    Route::get('/curr/verifyList','Curr\CurrController@verifyList');
     #视图
     Route::get('/video/audit','course\CourseController@video_audit');
     #点击 课程 展示章节

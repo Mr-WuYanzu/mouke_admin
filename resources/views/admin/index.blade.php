@@ -105,7 +105,8 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">课程视频审核</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/video/audit">视频审核列表</a></dd>
+                        <!-- <dd><a href="/video/audit">视频审核列表</a></dd> -->
+                        <dd><a href="/curr/verifyList">审核列表</a></dd>
                         <dd><a href="">审核未通过列表</a></dd>
                     </dl>
                 </li>

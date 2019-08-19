@@ -4,6 +4,7 @@ namespace App\Http\Controllers\course;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\CurrChapterModel;
 use DB;
 class CourseController extends Controller
 {
@@ -61,9 +62,13 @@ class CourseController extends Controller
      * [视频审核视图]
      */
     public function video_audit(){
+        #接收课程id
+        $curr_id=request()->get('curr_id');
         #查询课程表中 已上架的课程
-        $currInfo=DB::table('curr')->where(['is_show'=>1])->get();
-        return view('course.video_audit',compact('currInfo'));
+        $currInfo=DB::table('curr')->where(['is_show'=>1])->where('curr_id',$curr_id)->first();
+        #查询对应课程的章节信息
+        $chapterInfo=CurrChapterModel::where('curr_id',$curr_id)->get();
+        return view('course.video_audit',compact('currInfo','chapterInfo'));
     }
     #查询 章节信息
     public function curriculum(Request $request){

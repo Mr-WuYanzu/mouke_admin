@@ -49,4 +49,17 @@ class CurrController extends CommonController
     		$this->json_fail('评判失败');
     	}
     }
+
+    public function verifyList(Request $request)
+    {
+        //实例化模型类
+        $curr_model=new CurrModel();
+        //查询所有审核中的课程信息
+        $currInfo=$curr_model
+                    ->with('cate')
+                    ->where('curr_status',2)
+                    ->get();
+        //渲染视图
+        return view('curr/verifylist',['currInfo'=>$currInfo]);
+    }
 }

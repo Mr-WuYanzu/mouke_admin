@@ -4,22 +4,15 @@
 @section('content')
     {{--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--}}
     <form class="layui-form">
-        <div class="layui-form-item">
-            <label class="layui-form-label">选择课程</label>
-            <div class="layui-input-inline">
-                <select name="curr_id" id="curr_id" lay-filter='curr' lay-verify="required">
-                    <option value="">请选择课程</option>
-                    @foreach($currInfo as $v)
-                        <option value="{{$v->curr_id}}">{{$v->curr_name}}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
+        <input type="hidden" name="curr_id" value="{{$currInfo->curr_id}}">
         <div class="layui-form-item">
             <label class="layui-form-label">选择章节</label>
             <div class="layui-input-inline">
                 <select name="chapter_id" id="chapter_id" lay-filter='chapter' lay-verify="required">
                     <option value="">请选择章节</option>
+                    @foreach($chapterInfo as $v)
+                    <option value="{{$v->chapter_id}}">{{$v->chapter_name}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -54,40 +47,14 @@
             var layer = layui.layer;
             var form = layui.form;
 
-            //选择课程,展示课程下的章节
-            form.on('select(curr)',function(data){
-                var curr_id=data.value;
-                if(curr_id==''){
-                    layer.msg('请选择一个课程',{icon:5,time:1000});
-                    $('#chapter_id').empty();
-                    $('#chapter_id').append(new Option('请选择章节',''));
-                    $('#class_id').empty();
-                    $('#class_id').append(new Option('请选择章节',''));
-                    form.render();
-                    return false;
-                }
-                $.post(
-                    '/curriculum',
-                    {curr_id:curr_id},
-                    function(res){
-                        if(res!=2){
-                            for(i in res){
-                                $('#chapter_id').append(new Option(res[i]['chapter_name'],res[i]['chapter_id']));
-                            }
-                        }else{
-                            $('#chapter_id').empty();
-                            $('#chapter_id').append(new Option('请选择章节',''));
-                        }
-                        form.render();
-                    }
-                )
-            });
-
             //选择章节 展示章节下的课时
             form.on('select(chapter)',function(data) {
                 var chapter_id = data.value;
                 if (chapter_id == '') {
                     layer.msg('请选择一个章节', {icon: 5, time: 1000});
+                    $('#class_id').empty();
+                    $('#class_video').empty();
+                    form.render();
                     return false;
                 }
 
@@ -116,6 +83,8 @@
 
                 if(class_id==''){
                     layer.msg('请选择一个课时',{icon:5,time:1000});
+                    $('#class_video').empty();
+                    form.render();
                     return false;
                 }
 
