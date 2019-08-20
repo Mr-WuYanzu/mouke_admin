@@ -24,6 +24,31 @@
         //Demo
         layui.use('form', function(){
             var form = layui.form;
+            var layer = layui.layer;
+            //点击提交
+            form.on('submit(formDemo)', function(data){
+                //console.log(data.field);
+                $.post(
+                    "/cate_do",
+                    data.field,
+                    function(res){
+                        // console.log(res);
+                        if(res.code==1){
+                            layer.msg(res.msg,{icon:res.code});
+                        }else if(res.code==2){
+                            layer.msg(res.msg,{icon:res.code,time:2000},function(){
+                            location.href='/cate_formation/add';
+                            });
+                        }else{
+                            layer.msg(res.msg,{icon:res.code});
+                        }
+                    }
+                )
+                return false;
+            });
+
+
+
         });
     </script>
 

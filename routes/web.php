@@ -85,7 +85,7 @@ Route::get('/curr/judge','Curr\CurrController@judge');
 Route::post('/curr/judgeDo','Curr\CurrController@judgeDo');
 
 #分类删除
-Route::get('/cate_del/{id}','Zi\FormationController@cate_del');
+Route::post('/cate_del','Zi\FormationController@cate_del');
 Route::get('/teacherlist','teacher\TeacherController@teacherlist');
 
 Route::post('/teacherreview','teacher\TeacherController@teacherreview');
@@ -122,3 +122,13 @@ Route::get('/lock','teacher\TeacherController@lock');
     Route::post('/video_pass','course\CourseController@video_pass');
     #点击 审核不通过
     Route::post('/video_no','course\CourseController@video_no');
+
+#管理员登录
+    #注册视图
+    Route::get('/super_reg', function () {
+        return view('admin_user.reg');
+    });
+    #登录视图
+    Route::get('/super_login', function () {
+        return view('admin_user.login');
+    });
