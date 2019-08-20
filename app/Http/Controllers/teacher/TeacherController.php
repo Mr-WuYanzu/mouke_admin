@@ -16,6 +16,7 @@ class TeacherController extends Controller
      public function teacherlist(Request $request)
      {
         $data = DB::table('teacher')
+                ->where(['teacher.status'=>1])
                 ->join('curr','teacher.curr_id','=','curr.curr_id')
                 ->get();
         return view('teacher.teacherlist',['data'=>$data]);

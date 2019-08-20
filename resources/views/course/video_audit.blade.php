@@ -93,7 +93,7 @@
                     {class_id:class_id},
                     function(res){
                         if(res!=2){
-                            var _video="<video controls='controls' src='http://mouke.video.com"+res+"'></video>";
+                            var _video="<video controls='controls' src='http://curr.video.com/"+res+"'></video>";
                             if($('#class_video').children().is('video')!=true){
                                 $('#class_video').append(_video);
                             }
@@ -115,7 +115,9 @@
                     function(res){
                         // console.log(res);
                         if(res.code == 1){
-                            layer.msg(res.msg,{icon:res.code,time:2000});
+                            layer.msg(res.msg,{icon:res.code,time:2000},function(){
+                                history.go(0);
+                            });
                         }else{
                             layer.msg(res.msg,{icon:res.code,time:2000});
                         }
