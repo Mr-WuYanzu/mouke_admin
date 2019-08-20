@@ -26,7 +26,7 @@
       <td>{{$v->curr_id}}</td>
       <td>{{$v->curr_name}}</td>
       <td>
-      	<img src="{{$v->curr_img}}" width="50" height="30">
+      	<img src="http://curr.img.com/{{$v->curr_img}}" width="50" height="30">
       </td>
       <td>{{$v->status==1?'已完结':'更新中'}}</td>
       <td>{{$v->curr_detail}}</td>
