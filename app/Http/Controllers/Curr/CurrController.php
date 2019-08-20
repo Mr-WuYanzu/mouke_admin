@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Curr;
 
+use App\model\CurrClassModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Common\CommonController;
 use App\Model\CurrModel;
@@ -53,11 +54,10 @@ class CurrController extends CommonController
     public function verifyList(Request $request)
     {
         //实例化模型类
-        $curr_model=new CurrModel();
+        $curr_model=new CurrClassModel();
         //查询所有审核中的课程信息
         $currInfo=$curr_model
-                    ->with('cate')
-                    ->where('curr_status',2)
+                    ->where('video_status',3)
                     ->get();
         //渲染视图
         return view('curr/verifylist',['currInfo'=>$currInfo]);
