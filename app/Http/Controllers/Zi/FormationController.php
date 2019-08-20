@@ -28,12 +28,12 @@ class FormationController extends Controller
     }
 
     #分类删除
-    public function cate_del($id){
-        $res=DB::table('information_cate')->where(['info_cate_id'=>$id])->delete();
+    public function cate_del(Request $request){
+        $res=DB::table('information_cate')->where(['info_cate_id'=>$request->info_cate_id])->delete();
         if($res){
-            echo "<script>alert('删除成功');location.href='/cate_formation/list';</script>";exit;
+            return ['code'=>1,'msg'=>'删除成功'];
         }else{
-            echo "<script>alert('删除失败--》请稍后重试');location.href='/cate_formation/list';</script>";exit;
+            return ['code'=>5,'msg'=>'删除失败--》请稍后重试'];
         }
     }
 
@@ -41,7 +41,7 @@ class FormationController extends Controller
     public function cate_do(Request $request){
         $c_name=$request->c_name;
         if(empty($c_name)){
-            echo "<script>alert('请输入分类名称');location.href='/cate_formation/add';</script>";exit;
+            return ['code'=>2,'msg'=>'请输入分类名称'];
         }
         $arr=[
             'info_name'=>$c_name,
@@ -49,9 +49,9 @@ class FormationController extends Controller
         ];
         $res=DB::table('information_cate')->insert($arr);
         if($res){
-            echo "<script>alert('分类名称添加成功');location.href='/cate_formation/add';</script>";exit;
+            return ['code'=>1,'msg'=>'分类名称添加成功'];
         }else{
-            echo "<script>alert('分类名称添加失败');location.href='/cate_formation/add';</script>";exit;
+            return ['code'=>5,'msg'=>'分类名称添加失败'];
         }
     }
 
@@ -64,16 +64,7 @@ class FormationController extends Controller
 
     #资讯添加执行
     public function add_do(Request $request){
-        $data=$request->all();
-        if(empty($data['info_title'])){
-            echo "<script>alert('请输入资讯标题');location.href='/formation/add';</script>";exit;
-        }
-        if(empty($data['info_desc'])){
-            echo "<script>alert('请输入介绍内容');location.href='/formation/add';</script>";exit;
-        }
-        if(empty($data['info_detail'])){
-            echo "<script>alert('请输入详情内容');location.href='/formation/add';</script>";exit;
-        }
+        $data=$request->post();
         #将数据添加入库
         $arr=[
             'info_title'=>$data['info_title'],
@@ -84,9 +75,9 @@ class FormationController extends Controller
         ];
         $res=DB::table('infomation')->insert($arr);
         if($res){
-            echo "<script>alert('添加资讯成功');location.href='/formation/add';</script>";exit;
+            return ['code'=>1,'msg'=>'添加资讯成功'];
         }else{
-            echo "<script>alert('添加资讯失败');location.href='/formation/add';</script>";exit;
+            return ['code'=>5,'msg'=>'添加资讯失败'];
         }
 
     }
@@ -96,9 +87,9 @@ class FormationController extends Controller
         $info_id=$request->info_id;
         $res=DB::table('infomation')->where(['info_id'=>$info_id])->delete();
         if($res){
-            echo 1;
+            return ['code'=>1,'msg'=>'删除成功'];
         }else{
-            echo 2;
+            return ['code'=>5,'msg'=>'删除失败'];
         }
     }
     #资讯修改

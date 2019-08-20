@@ -34,7 +34,6 @@
         @endforeach
         </tbody>
     </table>
-
 <script>
      $(function() {
          layui.use(['layer'], function () {
@@ -86,9 +85,9 @@
                  )
 
              })
+
          })
      })
 </script>
-
 
 @endsection

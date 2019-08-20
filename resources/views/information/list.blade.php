@@ -37,21 +37,27 @@
 
 <script>
     $(function(){
-        //删除
-        $('.layui-btn-danger').click(function(){
-            var info_id=$(this).attr('info_id');
-            $.post(
-                '/formation/del',
-                {info_id:info_id},
-                function(res){
-                    if(res==1){
-                        alert('删除成功');
-                        location.href='/formation/list';
-                    }else{
-                        alert('删除失败-->请重试');
+        layui.use('form', function() {
+            var form = layui.form;
+            var layer = layui.layer;
+
+            //删除
+            $('.layui-btn-danger').click(function(){
+                var info_id=$(this).attr('info_id');
+                $.post(
+                    '/formation/del',
+                    {info_id:info_id},
+                    function(res){
+                        if(res.code==1){
+                            layer.msg(res.msg,{icon:res.code,time:2000},function(){
+                                location.href='/formation/list';
+                            });
+                        }else{
+                            layer.msg(res.msg,{icon:res.code});
+                        }
                     }
-                }
-            )
+                )
+            })
         })
     })
 </script>

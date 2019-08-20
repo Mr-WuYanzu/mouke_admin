@@ -21,10 +21,40 @@
         <tr>
             <td>{{$v->info_name}}</td>
             <td>
-                <a href="/cate_del/{{$v->info_cate_id}}"><button type="button" class="btn btn-info">删除</button></a>
+                <button type="button" class="btn btn-info" info_cate_id="{{$v->info_cate_id}}">删除</button>
             </td>
         </tr>
         </tbody>
         @endforeach
     </table>
+    <script>
+        //Demo
+        layui.use('form', function(){
+            var form = layui.form;
+            var layer = layui.layer;
+
+            $('.btn-info').click(function(){
+                var info_cate_id=$(this).attr('info_cate_id');
+                $.post(
+                    "/cate_del",
+                    {info_cate_id:info_cate_id},
+                    function(res){
+                        // console.log(res);
+                        if(res.code==1){
+                            layer.msg(res.msg,{icon:res.code,time:2000},function(){
+                                location.href='/cate_formation/list';
+                            });
+                        }else{
+                            layer.msg(res.msg,{icon:res.code});
+                        }
+                    }
+                )
+            })
+        });
+    </script>
+
+
+
+
+
 @endsection

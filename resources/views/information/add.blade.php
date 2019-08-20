@@ -38,7 +38,7 @@
 
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <button class="layui-btn" lay-submit lay-filter="formDemo" id="submit">立即提交</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
@@ -48,6 +48,25 @@
         //Demo
         layui.use('form', function(){
             var form = layui.form;
+            var layer = layui.layer;
+
+            //点击提交
+            form.on('submit(formDemo)', function(data){
+                //console.log(data.field);
+                $.post(
+                    "/formation/add_do",
+                    data.field,
+                    function(res){
+                        // console.log(res);
+                        if(res.code==1){
+                            layer.msg(res.msg,{icon:res.code});
+                        }else{
+                            layer.msg(res.msg,{icon:res.code});
+                        }
+                    }
+                )
+                return false;
+            });
         });
     </script>
 
